@@ -51,7 +51,6 @@
 			 else{
 				$("a").removeClass("a-active");
 				active.addClass("a-active");
-
 				$("a:last").removeClass("a-active");
 				slide(0);
 				$("a:first").addClass("a-active");
@@ -60,41 +59,41 @@
 		});
 
 		//------------- automatic slide -------------
-		    timeOut = setTimeout(function(){
-		    // automatic slide declaration
-				var cnt = 0;
-				var imgs = document.getElementById('img-container');
-			    var imgList = imgs.getElementsByTagName('img'); 
-		    	if(cnt <= imgList.length){
-			    	console.log("Time out will now start!");
-			    	$("#slide-1").removeClass('a-active');
+	    timeOut = setTimeout(function(){
+	    // automatic slide declaration
+			var cnt = 0;
+			var imgs = document.getElementById('img-container');
+		    var imgList = imgs.getElementsByTagName('img'); 
+	    	if(cnt <= imgList.length){
+		    	console.log("Time out will now start!");
+		    	$("#slide-1").removeClass('a-active');
 
-			    	interval = setInterval(function(){ 
-			    		imgList[0].src = imgList[cnt].src; 
-			    		console.log(imgList[0].src);
-			    		cnt++;
-			            //if the img reached the last slide, return the value of counter to 1
-			            if(cnt === imgList.length){ 
-			            	console.log("Image Length: " + imgList.length); 
-			            	cnt = 0;
-			            }
-			            // For Automatic Navigation
-			            var active = $(".slider-nav").find("a.a-active");
-			           	active.addClass('a-active');
-		            
-		            	if(active.next().length > 0){ // if may next slide pa
-		            		active.removeClass('a-active'); 
-		                	active.next().addClass('a-active'); 
-		            		
-			            }else{
-			                $("a").removeClass("a-active");
-			                $("#slide-1").addClass("a-active");
-			            }	 
+		    	interval = setInterval(function(){ 
+		    		imgList[0].src = imgList[cnt].src; 
+		    		console.log(imgList[0].src);
+		    		cnt++;
+		            //if the img reached the last slide, return the value of counter to 0
+		            if(cnt === imgList.length){ 
+		            	console.log("Image Length: " + imgList.length); 
+		            	cnt = 0;
+		            }
+		            // For Automatic Navigation
+		            var active = $(".slider-nav").find("a.a-active");
+		           	active.addClass('a-active');
+	            
+	            	if(active.next().length > 0){ // if may next slide pa
+	            		active.removeClass('a-active'); 
+	                	active.next().addClass('a-active'); 
+	            		
+		            }else{
+		                $("a").removeClass("a-active");
+		                $("#slide-1").addClass("a-active");
+		            }	 
 
-			    	}, 3000);
+		    	}, 3000);
 
-		    	}
-			  }, 3000);
+	    	}
+		  }, 3000);
 	    //------------ end of automatic slide ---------------
 
 		//Function to move slides with simple animation 
