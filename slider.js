@@ -40,7 +40,7 @@
 		$(".carousel .next").click(function() {
 			clearTimeout(timeOut);
 			clearTimeout(interval);
-			console.log(slide_index);
+			//console.log(slide_index);
 
 			slide(slide_index + 1);	
 			var active = $(".slider-nav").find("a.a-active");
@@ -52,9 +52,10 @@
 				$("a").removeClass("a-active");
 				active.addClass("a-active");
 
-				$("#slide-1").addClass("a-active");
-				slide(0);
 				$("a:last").removeClass("a-active");
+				slide(0);
+				$("a:first").addClass("a-active");
+				
 			}		
 		});
 
@@ -95,22 +96,6 @@
 		    	}
 			  }, 3000);
 	    //------------ end of automatic slide ---------------
-
-	    //----------- stop and start automatic slide depending on mouse hover--------
-		 //    $(".carousel ul").mouseover(function(){
-			//     clearTimeout(timeOut);
-			// 	clearTimeout(interval);
-			// 	console.log("Timeout and Interval removed: onmousehover");
-			// });
-
-			// $(".carousel ul").mouseleave(function(){
-			//     setTimeout(timeOut);
-			//     setInterval(interval);
-			//     console.log("Timeout and Interval started again.");
-			// });
-
-	    //---------- end of mouse hover
-
 
 		//Function to move slides with simple animation 
 		function slide(new_slide_index) {
